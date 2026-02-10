@@ -1,1 +1,43 @@
 
+
+ #!/bin/bash
+
+# Create folders if they don't exist
+mkdir -p Images Documents Videos Music Archives
+
+# Loop through each file in the folder
+for file in *; do
+    case "$file" in
+
+        .jpg|.png)
+            mv "$file" Images/
+            ;;
+
+        .pdf|.docx|*.txt)
+            mv "$file" Documents/
+            ;;
+
+        .mp4|.mkv)
+            mv "$file" Videos/
+            ;;
+
+        *.mp3)
+            mv "$file" Music/
+            ;;
+
+        .zip|.rar)
+            mv "$file" Archives/
+            ;;
+
+        *)
+            # Do nothing for other files
+            ;;
+    esac
+done
+
+echo "Downloads folder organized successfully!"
+ Press CTRL + O(What a while) → Enter(Wait a while)
+
+Press CTRL + X(Wait a while)
+ chmod +x organize.sh
+ ./organize.sh
